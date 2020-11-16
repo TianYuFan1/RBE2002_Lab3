@@ -65,3 +65,22 @@ void SpeedController::Stop()
 {
     motors.setEfforts(0,0);
 }
+
+void SpeedController::SwingTurn(int degree) {
+    
+
+    //     motors.setEfforts(0, 0);
+    
+    // uint32_t duration = 1000*((distance*10)/(float)target_velocity); //in ms
+    // unsigned long now = millis();
+
+    // //Serial.print(duration);
+    // //Serial.print('\t');
+    // //Serial.println(now);
+
+    // while ((unsigned long)(millis() - now) <= duration){
+    //     Run(-target_velocity,-target_velocity);
+    // }
+    // motors.setEfforts(0, 0);
+    // return 1;
+}

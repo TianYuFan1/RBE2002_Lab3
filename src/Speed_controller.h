@@ -15,6 +15,7 @@ class SpeedController{
         void Init(void);
         void Run(float, float); //degrees and direction: 0->left, 1->right
         boolean Turn(int,int);
+        void SwingTurn(int);
         boolean Reverse(int, int);
         void Stop(void);
 };
