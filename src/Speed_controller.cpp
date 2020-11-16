@@ -30,7 +30,8 @@ boolean SpeedController::Turn(int degree, int direction)
 {
     motors.setEfforts(0, 0);
     int turns = counts*(degree/180.0); //assignment 1: convert degree into counts
-    Serial.println(turns);
+    // Serial.println(turns);
+    // int turns = 180 * (140.0/35.0);
     int count_turn = MagneticEncoder.ReadEncoderCountLeft();
 
     while(abs(abs(count_turn) - abs(MagneticEncoder.ReadEncoderCountLeft())) <= turns)
