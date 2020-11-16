@@ -65,7 +65,7 @@ void Behaviors::Run(void)
         Serial.print("\t");
         Serial.print(data[2] * 9.8/1000.0);
         Serial.println();
-        delay(100);
+        // delay(100);
         }
     }
     // switch (robot_state)

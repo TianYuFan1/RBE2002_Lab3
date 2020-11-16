@@ -66,21 +66,19 @@ void SpeedController::Stop()
     motors.setEfforts(0,0);
 }
 
-void SpeedController::SwingTurn(int degree) {
-    
+void SpeedController::SwingTurn(int degree, boolean direction) {
+    motors.setEfforts(0, 0);
+    // int turns = counts*(degree/180.0); //assignment 1: convert degree into counts
+    // int turns = 360 * 140.0/35;
+    int turns = 1800;
+    // Serial.println(turns);
+    // int turns = 180 * (140.0/35.0);
+    int count_turn = MagneticEncoder.ReadEncoderCountLeft();
 
-    //     motors.setEfforts(0, 0);
-    
-    // uint32_t duration = 1000*((distance*10)/(float)target_velocity); //in ms
-    // unsigned long now = millis();
-
-    // //Serial.print(duration);
-    // //Serial.print('\t');
-    // //Serial.println(now);
-
-    // while ((unsigned long)(millis() - now) <= duration){
-    //     Run(-target_velocity,-target_velocity);
-    // }
-    // motors.setEfforts(0, 0);
-    // return 1;
+    while(abs(abs(count_turn) - abs(MagneticEncoder.ReadEncoderCountLeft())) <= turns)
+    {
+        if(!direction) Run(-50,-0);
+        else Run(-50,0);
+    }
+    motors.setEfforts(0, 0);
 }
