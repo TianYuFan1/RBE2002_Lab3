@@ -51,19 +51,19 @@ void Behaviors::Stop(void)
 void Behaviors::Run(void)
 {
     if (buttonA.isPressed()) {
-        PIcontroller.Run(50, 50);
+        PIcontroller.Run(50.0, 50.0);
         while(true) {
-        // PIcontroller.Run(200, 200);
+        // PIcontroller.Run(200.0, 200.0);
         auto data_acc = LSM6.ReadAcceleration();
         data[0] = med_x.Filter(data_acc.X)*0.061; // X
         data[1] = med_y.Filter(data_acc.Y)*0.061; // Y
         data[2] = med_z.Filter(data_acc.Z)*0.061; // Y
 
-        Serial.print(data[0]);
+        Serial.print(data[0] * 9.8/1000.0);
         Serial.print("\t");
-        Serial.print(data[1]);
+        Serial.print(data[1] * 9.8/1000.0);
         Serial.print("\t");
-        Serial.print(data[2]);
+        Serial.print(data[2] * 9.8/1000.0);
         Serial.println();
         delay(100);
         }
