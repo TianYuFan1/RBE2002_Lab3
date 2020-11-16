@@ -51,6 +51,7 @@ void Behaviors::Stop(void)
 void Behaviors::Run(void)
 {
     if (buttonA.isPressed()) {
+        while(true) {
         PIcontroller.Run(50, 50);
         // PIcontroller.Run(200, 200);
         auto data_acc = LSM6.ReadAcceleration();
@@ -64,6 +65,7 @@ void Behaviors::Run(void)
         Serial.print("\t");
         Serial.print(data[2]);
         Serial.println();
+        }
     }
     // switch (robot_state)
     // {
